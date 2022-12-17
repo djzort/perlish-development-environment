@@ -47,12 +47,16 @@ task prepare => sub {
     my @packages;
 
     if (is_redhat) {
-        push @packages, qw/ curl git net-tools tar wget /;
+        # absolute minimum
+        push @packages, qw/ curl git jq net-tools tar wget /;
+        # tools in perl
         push @packages, qw/ ack colordiff parallel /;
+        # other good to have
+        push @packages, qw/ httpie nnn tldr tig /;
         dnf();
     }
     if (is_suse) {
-        push @packages, qw/ curl git net-tools tar wget /;
+        push @packages, qw/ curl git jq net-tools tar wget /;
     }
 
     die "Basics not supported for OS\n" unless @packages;

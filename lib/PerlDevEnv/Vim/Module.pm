@@ -1,7 +1,7 @@
 #!/bin/false
 # vim: softtabstop=4 tabstop=4 shiftwidth=4 ft=perl expandtab smarttab
 
-package PerlDevEnv::VIM;
+package PerlDevEnv::Vim;
 
 use Rex -base;
 use Rex::Commands::SCM;
@@ -11,7 +11,7 @@ set repository => "spacevim",
 
 task prepare => sub {
 
-    Rex::Logger::info('Installing VIM');
+    Rex::Logger::info('Installing Vim');
 
     my @packages;
 
