@@ -19,11 +19,16 @@ task dnf => sub {
     if (int(operating_system_release()) == 8) {
         Rex::Logger::info('RedHat-ish 8');
         # Rocky Linux
-        my $file = '/etc/yum.repos.d/Rocky-PowerTools.repo';
-        if (is_file($file)) {
-            sed qr|^enabled=.*|,
-                'enabled=1',
-                $file, on_change => sub { $updaterepo++ };
+        my @files = (
+            '/etc/yum.repos.d/almalinux-powertools.repo',
+            '/etc/yum.repos.d/Rocky-PowerTools.repo'
+            );
+        for my $file (@files) {
+            if (is_file($file)) {
+                sed qr|^enabled=.*|,
+                    'enabled=1',
+                    $file, on_change => sub { $updaterepo++ };
+            }
         }
     }
 
@@ -47,12 +52,15 @@ task prepare => sub {
     my @packages;
 
     if (is_redhat) {
+        # needed for Rex to work
+        push @packages, qw/ which net-tools /;
         # absolute minimum
-        push @packages, qw/ curl git jq net-tools tar wget /;
+        push @packages, qw/ curl git jq tar wget /;
         # tools in perl
         push @packages, qw/ ack colordiff parallel /;
         # other good to have
-        push @packages, qw/ httpie nnn tldr tig /;
+        # push @packages, qw/ httpie nnn tldr tig /;
+        push @packages, qw/ nnn tldr tig /;
         dnf();
     }
     if (is_suse) {
