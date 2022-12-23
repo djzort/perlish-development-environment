@@ -1,7 +1,7 @@
 #!/bin/false
 # vim: softtabstop=4 tabstop=4 shiftwidth=4 ft=perl expandtab smarttab
 
-package PerlDevEnv::Vim;
+package PerlDevEnv::Editor::Vim;
 
 use Rex -base;
 use Rex::Commands::SCM;
