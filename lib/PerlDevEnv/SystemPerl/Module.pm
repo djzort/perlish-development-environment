@@ -7,7 +7,7 @@ use Rex -base;
 
 task prepare => sub {
 
-    Rex::Logger::info('Installing System Perl');
+    Rex::Logger::info(__PACKAGE__);
 
     pkg [qw/ perl /], ensure => 'latest';
 

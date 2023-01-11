@@ -7,7 +7,7 @@ use Rex -base;
 
 task prepare => sub {
 
-    Rex::Logger::info('Installing Nano');
+    Rex::Logger::info(__PACKAGE__);
 
     pkg [qw/ nano /], ensure => 'latest';
 

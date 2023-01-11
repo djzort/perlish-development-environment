@@ -7,10 +7,13 @@ use Rex -base;
 
 task prepare => sub {
 
-    Rex::Logger::info('Installing Emacs');
+    Rex::Logger::info(__PACKAGE__);
 
     my @packages;
 
+    if (is_arch) {
+        push @packages, qw/ emacs-nox /;
+    }
     if (is_debian) {
         push @packages, qw/ emacs /;
     }

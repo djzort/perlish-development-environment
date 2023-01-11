@@ -7,7 +7,7 @@ use Rex -base;
 
 task prepare => sub {
 
-    Rex::Logger::info('Installing Micro');
+    Rex::Logger::info(__PACKAGE__);
 
     # Cant find a rhel package
 

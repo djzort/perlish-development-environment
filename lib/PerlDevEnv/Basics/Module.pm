@@ -7,8 +7,6 @@ use Rex -base;
 
 task dnf => sub {
 
-    Rex::Logger::info('Configuring DNF');
-
     return if not is_redhat;
 
     my $updaterepo;
@@ -47,7 +45,7 @@ task dnf => sub {
 
 task prepare => sub {
 
-    Rex::Logger::info('Installing Basics');
+    Rex::Logger::info(__PACKAGE__);
 
     my @packages;
 
@@ -59,12 +57,19 @@ task prepare => sub {
         # tools in perl
         push @packages, qw/ ack colordiff parallel /;
         # other good to have
-        # push @packages, qw/ httpie nnn tldr tig /;
-        push @packages, qw/ nnn tldr tig /;
+        push @packages, qw/ dos2unix nnn tldr tig /;
         dnf();
     }
     if (is_suse) {
         push @packages, qw/ curl git jq net-tools tar wget /;
+    }
+    if (is_arch) {
+        # needed for Rex to work
+        push @packages, qw/ which net-tools /;
+        # absolute minimum
+        push @packages, qw/ curl git jq tar wget /;
+        # tools in perl
+        push @packages, qw/ ack colordiff parallel /;
     }
 
     die "Basics not supported for OS\n" unless @packages;

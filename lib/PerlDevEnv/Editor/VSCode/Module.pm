@@ -7,7 +7,7 @@ use Rex -base;
 
 task prepare => sub {
 
-    Rex::Logger::info('Installing VSCode');
+    Rex::Logger::info(__PACKAGE__);
 
     repository
       add         => 'vscode',

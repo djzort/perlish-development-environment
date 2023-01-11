@@ -11,10 +11,13 @@ set repository => "spacevim",
 
 task prepare => sub {
 
-    Rex::Logger::info('Installing Vim');
+    Rex::Logger::info(__PACKAGE__);
 
     my @packages;
 
+    if (is_arch) {
+        push @packages, qw/ vim /;
+    }
     if (is_debian) {
         push @packages, qw/ vim /;
     }

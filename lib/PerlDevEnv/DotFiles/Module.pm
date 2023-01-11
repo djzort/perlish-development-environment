@@ -7,7 +7,7 @@ use Rex -base;
 
 task prepare => sub {
 
-    Rex::Logger::info('Installing DotFiles Management');
+    Rex::Logger::info(__PACKAGE__);
 
     my @packages;
 

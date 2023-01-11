@@ -7,7 +7,7 @@ use Rex -base;
 
 task prepare => sub {
 
-    Rex::Logger::info('Installing VSCode Server');
+    Rex::Logger::info(__PACKAGE__);
 
     pkg ['tar'], ensure => 'present';
 

@@ -7,7 +7,7 @@ use Rex -base;
 
 task prepare => sub {
 
-    Rex::Logger::info('Installing Midnight Commander');
+    Rex::Logger::info(__PACKAGE__);
 
     pkg [qw/ mc /], ensure => 'latest';
 
