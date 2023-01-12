@@ -11,7 +11,7 @@ task prepare => sub {
 
     my @packages = qw/ bash /;
 
-    if (is_redhat) {
+    if (is_redhat or is_freebsd) {
         push @packages, qw/ bash-completion /
     }
 
