@@ -9,6 +9,9 @@ task prepare => sub {
 
     Rex::Logger::info(__PACKAGE__);
 
+    # tcsh is the default in FreeBSD
+    return if is_freebsd;
+
     pkg [qw/ tcsh /], ensure => 'latest';
 
 };
