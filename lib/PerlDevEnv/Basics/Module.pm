@@ -49,6 +49,24 @@ task prepare => sub {
 
     my @packages;
 
+    if (is_arch) {
+        # needed for Rex to work
+        push @packages, qw/ which net-tools /;
+        # absolute minimum
+        push @packages, qw/ curl git jq tar wget /;
+        # tools in perl
+        push @packages, qw/ ack colordiff parallel /;
+        # other good to have
+        push @packages, qw/ dos2unix tldr tig /;
+    }
+    if (is_freebsd) {
+        # absolute minimum
+        push @packages, qw/ curl git jq gtar wget /;
+        # tools in perl
+        push @packages, qw/ p5-ack colordiff parallel /;
+        # other good to have
+        push @packages, qw/ tig /;
+    }
     if (is_redhat) {
         # needed for Rex to work
         push @packages, qw/ which net-tools /;
@@ -57,22 +75,15 @@ task prepare => sub {
         # tools in perl
         push @packages, qw/ ack colordiff parallel /;
         # other good to have
-        push @packages, qw/ dos2unix nnn tldr tig /;
+        push @packages, qw/ dos2unix tldr tig /;
         dnf();
     }
     if (is_suse) {
         push @packages, qw/ curl git jq net-tools tar wget /;
     }
-    if (is_arch) {
-        # needed for Rex to work
-        push @packages, qw/ which net-tools /;
-        # absolute minimum
-        push @packages, qw/ curl git jq tar wget /;
-        # tools in perl
-        push @packages, qw/ ack colordiff parallel /;
-    }
 
-    die "Basics not supported for OS\n" unless @packages;
+    die "Basics not supported for OS\n"
+        unless @packages;
 
     pkg \@packages, ensure => 'latest';
 
