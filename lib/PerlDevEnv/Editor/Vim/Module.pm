@@ -15,23 +15,17 @@ task prepare => sub {
 
     my @packages;
 
-    if (is_arch) {
-        push @packages, qw/ vim /;
-    }
-    if (is_debian) {
-        push @packages, qw/ vim /;
-    }
-    if (is_redhat) {
-        push @packages, qw/ vim-enhanced /;
-    }
-    if (is_suse) {
-        push @packages, qw/ vim /;
-    }
+    push @packages, qw/ vim /
+        if is_arch or is_debian or is_freebsd or is_suse;
+    push @packages, qw/ vim-enhanced /
+        if is_redhat;
 
-    die "Unable to configure Vim for this OS\n" unless @packages;
+    die "Unable to configure Vim for this OS\n"
+        unless @packages;
 
     pkg \@packages, ensure => 'latest';
 
+    # TODO proper user
     checkout 'spacevim', path => '/home/dean/.SpaceVim';
 
 };
