@@ -9,7 +9,11 @@ task prepare => sub {
 
     Rex::Logger::info(__PACKAGE__);
 
-    pkg [qw/ perl /], ensure => 'latest';
+    my @packages;
+    push @packages, 'perl'  if is_linux;
+    push @packages, 'perl5' if is_freebsd;
+
+    pkg \@packages, ensure => 'latest';
 
 };
 
