@@ -23,6 +23,11 @@ task prepare => sub {
     die "Unable to configure Vim for this OS\n"
         unless @packages;
 
+    push @packages, qw/ vim-ale vim-scripts /
+        if is_debian;
+
+    push @packages, qw/ awesome-vim-colorschemes /;
+
     pkg \@packages, ensure => 'latest';
 
     # TODO proper user
