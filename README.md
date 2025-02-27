@@ -1,11 +1,14 @@
-# Perl Development Environment
+# Perl-ish Development Environment
 
-An attempt to provide a basis for standardized Perl Development Environments for your organization.
+An attempt to provide a basis for standardized Perl-ish Development Environments for your organization.
 
 Because disk space is very cheap and most tools are very small, the philosopy is:
+- Prefer system packages because they will likely be signed and maintained.
 - Include almost any useful tool implemented in Perl
 - Include important tools that are binary
 - Include very important tools that are other
+
+The environment is intended for general development in a Perl-ish company.
 
 Again, this is a basis point so be inspired and build something useful for your needs.
 
