@@ -11,8 +11,8 @@ task prepare => sub {
 
     my @packages = qw/ bash /;
 
-    if (is_redhat or is_freebsd) {
-        push @packages, qw/ bash-completion /
+    if ( is_redhat or is_freebsd ) {
+        push @packages, qw/ bash-completion /;
     }
 
     pkg \@packages, ensure => 'latest';

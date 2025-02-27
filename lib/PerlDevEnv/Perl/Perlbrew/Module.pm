@@ -9,18 +9,17 @@ task install_perlbrew => sub {
 
     my @packages;
 
-    push @packages, ('perlbrew', 'perl-devel-patchperl')
-        if is_arch;
+    push @packages, ( 'perlbrew', 'perl-devel-patchperl' )
+      if is_arch;
     push @packages, 'p5-App-perlbrew'
-        if is_freebsd;
-    push @packages, ('perl-App-perlbrew', 'perl-Devel-PatchPerl')
-        if is_suse;
+      if is_freebsd;
+    push @packages, ( 'perl-App-perlbrew', 'perl-Devel-PatchPerl' )
+      if is_suse;
 
     die "Unable to install Perlbrew for this OS\n"
-        unless @packages;
+      unless @packages;
 
-    pkg \@packages,
-        ensure => 'latest';
+    pkg \@packages, ensure => 'latest';
 
 };
 

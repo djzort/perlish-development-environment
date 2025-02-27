@@ -11,8 +11,9 @@ task prepare => sub {
 
     my @packages;
 
-    push @packages, 'rcm'
-        if is_debian or is_freebsd or is_suse;
+    if ( is_debian or is_freebsd or is_suse ) {
+        push @packages, 'rcm';
+    }
 
     die "Unable to configure DotFiles for this OS\n" unless @packages;
 

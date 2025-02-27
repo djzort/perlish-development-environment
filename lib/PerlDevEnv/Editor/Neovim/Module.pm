@@ -12,7 +12,7 @@ task prepare => sub {
     my @packages = qw/ neovim /;
 
     die "Unable to configure Neovim for this OS\n"
-        unless @packages;
+      unless @packages;
 
     pkg \@packages, ensure => 'latest';
 

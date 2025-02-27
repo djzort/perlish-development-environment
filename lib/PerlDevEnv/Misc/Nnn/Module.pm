@@ -11,18 +11,19 @@ task prepare => sub {
 
     my @packages;
 
-    push @packages, 'nnn'
-        if is_arch
-            or is_debian
-            or is_freebsd
-            or is_redhat
-            or is_suse;
+    if (   is_arch
+        or is_debian
+        or is_freebsd
+        or is_redhat
+        or is_suse )
+    {
+        push @packages, 'nnn';
+    }
 
     die "Unable to configure DotFiles for this OS\n"
-        unless @packages;
+      unless @packages;
 
     pkg \@packages, ensure => 'latest';
-
 
 };
 

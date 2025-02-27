@@ -12,11 +12,12 @@ task prepare => sub {
 
     my @packages;
 
-    push @packages, qw/ vile /
-        if is_arch or is_debian or is_freebsd or is_suse or is_redhat;
+    if ( is_arch or is_debian or is_freebsd or is_suse or is_redhat ) {
+        push @packages, qw/ vile /;
+    }
 
     die "Unable to configure Vile for this OS\n"
-        unless @packages;
+      unless @packages;
 
     pkg \@packages, ensure => 'latest';
 

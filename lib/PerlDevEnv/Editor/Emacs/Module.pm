@@ -11,13 +11,15 @@ task prepare => sub {
 
     my @packages;
 
-    push @packages, qw/ emacs-nox /
-        if is_arch or is_freebsd or is_redhat;
-    push @packages, qw/ emacs /
-        if is_debian or is_suse;
+    if ( is_arch or is_freebsd or is_redhat ) {
+        push @packages, qw/ emacs-nox /;
+    }
+    if ( is_debian or is_suse ) {
+        push @packages, qw/ emacs /;
+    }
 
     die "Unable to configure Emacs for this OS\n"
-        unless @packages;
+      unless @packages;
 
     pkg \@packages, ensure => 'latest';
 

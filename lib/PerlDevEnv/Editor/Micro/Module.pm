@@ -10,7 +10,9 @@ task prepare => sub {
     Rex::Logger::info(__PACKAGE__);
 
     die "Unable to configure Micro for this OS\n"
-        unless is_arch or is_debian or is_suse;
+      unless is_arch
+      or is_debian
+      or is_suse;
 
     pkg [qw/ micro /], ensure => 'latest';
 
