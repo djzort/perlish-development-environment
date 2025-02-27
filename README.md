@@ -23,13 +23,16 @@ Populate the hostgroups.ini
 
 ```
 [rhel]
-host.fqdn
+rockylinux.fqdn
+
+[freebsd]
+ghostbsd.fqdn
 
 ```
 
 Run Rex against a host.
 ```
-rex -H host.fqdn get_infos
+rex -H ghostbsd.fqdn get_infos
 ```
 
 Run Rex against a hostgroup and make changes.
