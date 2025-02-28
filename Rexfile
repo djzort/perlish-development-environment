@@ -23,6 +23,8 @@ include qw/
   PerlDevEnv::Editor::VSCodeServer
   PerlDevEnv::Misc::MidnightCommander
   PerlDevEnv::Misc::Nnn
+  PerlDevEnv::Misc::Screen
+  PerlDevEnv::Misc::Tmux
   PerlDevEnv::Shell::Bash
   PerlDevEnv::Shell::Fish
   PerlDevEnv::Shell::Tcsh
