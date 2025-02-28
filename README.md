@@ -27,7 +27,6 @@ rockylinux.fqdn
 
 [freebsd]
 ghostbsd.fqdn
-
 ```
 
 Run Rex against a host.
@@ -38,7 +37,7 @@ rex -H ghostbsd.fqdn get_infos
 Run Rex against a hostgroup and make changes.
 
 ```
-rex -G rhel rhel_development_environment
+rex -u root -G rhel rhel_development_environment
 ```
 
 Review the Rexfile for tasks designed for other Distros and OS.
@@ -69,6 +68,8 @@ Tools included:
  - curl
  - git
  - jq
+ - screen
+ - tmux
  - wget
 
 Perl tools included:
