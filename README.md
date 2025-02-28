@@ -64,12 +64,15 @@ Editors and IDEs:
  - Midnight Commander
  - Nnn
 
+ Terminal Related:
+ - mosh
+ - screen
+ - tmux
+
 Tools included:
  - curl
  - git
  - jq
- - screen
- - tmux
  - wget
 
 Perl tools included:
@@ -94,3 +97,4 @@ Tested on:
 
 TODO:
  - OpenBSD
+ - EternalTerminal
