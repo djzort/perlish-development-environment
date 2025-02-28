@@ -1,7 +1,7 @@
 #!/bin/false
 # vim: softtabstop=4 tabstop=4 shiftwidth=4 ft=perl expandtab smarttab
 
-package PerlDevEnv::Misc::Tmux;
+package PerlDevEnv::Terminal::Screen;
 
 use Rex -base;
 
@@ -17,10 +17,10 @@ task prepare => sub {
         or is_redhat
         or is_suse )
     {
-        push @packages, 'tmux';
+        push @packages, 'screen';
     }
 
-    die "Unable to configure Tmux for this OS\n"
+    die "Unable to configure Screen for this OS\n"
       unless @packages;
 
     pkg \@packages, ensure => 'latest';
