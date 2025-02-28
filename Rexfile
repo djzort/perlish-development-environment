@@ -27,6 +27,7 @@ include qw/
   PerlDevEnv::Shell::Fish
   PerlDevEnv::Shell::Tcsh
   PerlDevEnv::Shell::Zsh
+  PerlDevEnv::Terminal::Mosh
   PerlDevEnv::Terminal::Screen
   PerlDevEnv::Terminal::Tmux
   PerlDevEnv::Perl::Perlbrew
@@ -220,6 +221,8 @@ task 'rhel_development_environment',
 
     PerlDevEnv::Misc::MidnightCommander::prepare();
     PerlDevEnv::Misc::Nnn::prepare();
+
+    PerlDevEnv::Terminal::Mosh::prepare();
     PerlDevEnv::Terminal::Screen::prepare();
     PerlDevEnv::Terminal::Tmux::prepare();
 
