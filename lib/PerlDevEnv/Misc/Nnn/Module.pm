@@ -20,7 +20,7 @@ task prepare => sub {
         push @packages, 'nnn';
     }
 
-    die "Unable to configure DotFiles for this OS\n"
+    die "Unable to configure Nnn for this OS\n"
       unless @packages;
 
     pkg \@packages, ensure => 'latest';
