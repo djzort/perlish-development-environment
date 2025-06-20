@@ -14,10 +14,12 @@ use Data::Printer;
 include qw/
   PerlDevEnv::Basics
   PerlDevEnv::DotFiles
+  PerlDevEnv::Editor::Dte
   PerlDevEnv::Editor::Emacs
   PerlDevEnv::Editor::Micro
   PerlDevEnv::Editor::Nano
   PerlDevEnv::Editor::Neovim
+  PerlDevEnv::Editor::Vile
   PerlDevEnv::Editor::Vim
   PerlDevEnv::Editor::VSCode
   PerlDevEnv::Editor::VSCodeServer
