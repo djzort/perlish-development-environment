@@ -4,7 +4,6 @@
 package PerlDevEnv::Editor::Vile;
 
 use Rex -base;
-use Rex::Commands::SCM;
 
 task prepare => sub {
 
